@@ -6,7 +6,7 @@ export class QueueController {
   constructor(private readonly queueService: QueueService) {}
 
   @Post()
-  addMessage(@Body('data') data: number) {
+  addMessage(@Body() data: number) {
     return this.queueService.addMessageQueue(data);
   }
 }

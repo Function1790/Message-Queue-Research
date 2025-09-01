@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BullModule } from '@nestjs/bull';
 import { QueueModule } from './queue/queue.module';
+import { DeliveryModule } from './delivery/delivery.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { QueueModule } from './queue/queue.module';
       },
     }),
     QueueModule,
+    DeliveryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
