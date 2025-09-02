@@ -6,6 +6,9 @@ import { QueueModule } from './queue/queue.module';
 import { DeliveryModule } from './delivery/delivery.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { CouponModule } from './coupon/coupon.module';
+import { User } from './user/entity/user.entity';
+import { Coupon } from './coupon/entity/coupon.entity';
 
 @Module({
   imports: [
@@ -16,7 +19,7 @@ import { UserModule } from './user/user.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [],
+      entities: [User, Coupon],
       synchronize: true,
     }),
     BullModule.forRoot({
@@ -28,6 +31,7 @@ import { UserModule } from './user/user.module';
     QueueModule,
     DeliveryModule,
     UserModule,
+    CouponModule,
   ],
   controllers: [AppController],
   providers: [AppService],
