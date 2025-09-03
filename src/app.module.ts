@@ -20,7 +20,17 @@ import { Coupon } from './coupon/entity/coupon.entity';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
       entities: [User, Coupon],
-      synchronize: true,
+      synchronize:
+        console.log({
+          type: 'mysql',
+          host: process.env.DB_HOST,
+          port: Number(process.env.DB_PORT),
+          username: process.env.DB_USERNAME,
+          password: process.env.DB_PASSWORD,
+          database: process.env.DB_DATABASE,
+          entities: [User, Coupon],
+          synchronize: console.log() ?? true,
+        }) ?? true,
     }),
     BullModule.forRoot({
       redis: {
